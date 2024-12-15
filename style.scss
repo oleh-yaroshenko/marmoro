@@ -1,0 +1,659 @@
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-semibold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-extralight.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-bold-italic.ttf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-semibold-italic.ttf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-medium-italic.ttf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-regular-italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-light-italic.ttf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-extralight-italic.ttf);
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Conso";
+    src: url(assets/font/conso-thin-italic.ttf);
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Snell Roundhand";
+    src: url(assets/font/snell-roundhand-black.ttf);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Snell Roundhand";
+    src: url(assets/font/snell-roundhand-bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Snell Roundhand";
+    src: url(assets/font/snell-roundhand-light.ttf);
+    font-weight: 300;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    font-weight: normal;
+    font-size: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    color: initial;
+    font-family: inherit;
+    list-style: none;
+    vertical-align: baseline;
+    background: none;
+    outline: none;
+}
+
+$white: #ffffff;
+$green: #acbea3;
+$green-dark: #0f403f;
+$red: #8f1010;
+$black: #000000;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Conso", serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3rem;
+    background: $green-dark;
+    justify-content: space-between;
+    z-index: 1;
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem;
+    }
+}
+
+.header-title {
+    font-size: 24px;
+    color: $green;
+    font-weight: 900;
+    font-family: "Snell Roundhand", serif;
+}
+
+.header-ul {
+    display: flex;
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.header-ul-li-a {
+    font-size: 18px;
+    font-weight: 700;
+    color: $white;
+    transition: .3s;
+
+    &:hover {
+        color: $green;
+    }
+}
+
+.header-input {
+    border-radius: 5rem;
+    background: $green;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+        .header-input-field {
+            width: 10rem;
+            padding-left: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.header-input-img {
+    width: 1rem;
+}
+
+.header-input-field {
+    padding-top: .125rem;
+    transition: .3s;
+    width: 0rem;
+
+    &::placeholder {
+        color: $green-dark;
+    }
+}
+
+.header-burger {
+    display: none;
+    flex-direction: column;
+    gap: .35rem;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+    }
+}
+
+.header-burger-line {
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 1rem;
+    background: $green;
+}
+
+.header-mobile {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: $green-dark;
+    padding: 1rem;
+    z-index: 3;
+    opacity: 0;
+    transform: translate(100%);
+    transition: .3s;
+}
+
+.header-mobile-show {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.header-mobile-burger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.25rem;
+    position: absolute;
+    top: 1.75rem;
+    right: 1rem;
+}
+
+.header-mobile-burger-line {
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 1rem;
+    position: relative;
+    background: $green;
+
+    &:nth-child(1) {
+        rotate: -45deg;
+        bottom: -.175rem;
+    }
+
+    &:nth-child(2) {
+        rotate: 45deg;
+        top: -.175rem;
+    }
+}
+
+.header-mobile-input {
+    display: flex;
+    align-items: center;
+    border-radius: 5rem;
+    padding: 0 1rem;
+    background: $green;
+    gap: .5rem;
+    margin-right: 3rem;
+}
+
+.header-mobile-input-img {
+    width: 1rem;
+}
+
+.header-mobile-input-field {
+    padding-top: .125em;
+
+    &::placeholder {
+        color: $green-dark;
+    }
+}
+
+.header-mobile-ul {
+    padding-top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-mobile-ul-li-a {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: $white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-hero {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: $red;
+    gap: 1rem;
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.main-hero-img {
+    width: 40%;
+}
+
+.main-hero-text {
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.main-hero-text-title {
+    font-size: 48px;
+    font-family: "Snell Roundhand", serif;
+    font-weight: 900;
+    color: $white;
+    line-height: 48px;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.main-hero-text-descr {
+    color: $white;
+    line-height: 1.25rem;
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+        font-size: 14px;
+        line-height: 1rem;
+    }
+}
+
+.main-hero-a {
+    padding: 1.25rem 2rem 1rem;
+    border-radius: 5rem;
+    background: $green;
+    width: fit-content;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    transition: .3s;
+    color: $green-dark;
+
+    &:hover {
+        background: $green-dark;
+        color: $green;
+    }
+
+    @media screen and (max-width: 1024px) {
+        font-size: 18px;
+        line-height: 18px;
+        padding: 1rem 1.75rem .75rem;
+    }
+}
+
+.main-tea {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: $green;
+    gap: 3rem;
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+}
+
+.main-tea-text {
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    }
+}
+
+.main-tea-text-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: $green-dark;
+    text-align: end;
+    line-height: 48px;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+.main-tea-text-descr {
+    text-align: end;
+    line-height: 1.25rem;
+
+    @media screen and (max-width: 768px) {
+        text-align: center;
+        font-size: 14px;
+        line-height: 1rem;
+    }
+}
+
+.main-tea-text-a {
+    padding: 1.25rem 2rem 1rem;
+    border-radius: 5rem;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    background: $red;
+    color: $white;
+    transition: .3s;
+
+    &:hover {
+        background: $white;
+        color: $red;
+    }
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem 1.75rem .75rem;
+        font-size: 18px;
+        line-height: 18px;
+    }
+}
+
+.main-tea-img {
+    width: 40%;
+}
+
+.main-bestsellers {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    gap: 1rem;
+    background: $green-dark;
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem;
+    }
+}
+
+.main-bestsellers-title {
+    font-size: 48px;
+    font-family: "Snell Roundhand", serif;
+    font-weight: 900;
+    color: $white;
+    line-height: 48px;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 36px;
+        line-height: 36px;
+    }
+}
+
+.main-bestsellers-wrapper {
+    display: flex;
+    gap: 3rem;
+
+    @media screen and (max-width: 1024px) {
+        gap: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.main-bestsellers-wrapper-card {
+    flex: 1 1 30%;
+    padding: 6rem 1rem 3rem;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: .3s;
+
+    &:nth-child(1) {
+        background: url(assets/bestseller-one.jpg) no-repeat center/cover;
+    }
+
+    &:nth-child(2) {
+        background: url(assets/bestseller-two.jpg) no-repeat center/cover;
+    }
+
+    &:nth-child(3) {
+        background: url(assets/bestseller-three.jpg) no-repeat center/cover;
+    }
+
+    &:hover {
+
+        .main-bestsellers-wrapper-card-title,
+        .main-bestsellers-wrapper-card-descr {
+            opacity: 1;
+        }
+
+        background-color: $red;
+        background-blend-mode: color;
+    }
+
+    @media screen and (max-width: 1024px) {
+        border-radius: 2rem;
+        padding: 3rem 1rem 1rem;
+    }
+}
+
+.main-bestsellers-wrapper-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $green;
+    line-height: 24px;
+    transition: .3s;
+    opacity: 0;
+}
+
+.main-bestsellers-wrapper-card-descr {
+    color: $white;
+    line-height: 1.25rem;
+    text-align: justify;
+    transition: .3s;
+    opacity: 0;
+}
+
+.footer {
+    display: flex;
+    align-items: stretch;
+    padding: 1rem 3rem;
+    background: $green;
+    gap: 1rem;
+
+    @media screen and (max-width: 1024px) {
+        padding: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    gap: 1rem;
+}
+
+.footer-social-title {
+    font-size: 24px;
+    font-family: "Snell Roundhand", serif;
+    color: $green-dark;
+    font-weight: 900;
+    line-height: 24px;
+}
+
+.footer-social-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.footer-social-wrapper-img {
+    width: 2rem;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+        filter: invert(100%);
+    }
+}
+
+.footer-social-copyright {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+}
+
+.footer-links {
+    flex: 1 1 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.footer-links-a {
+    flex-grow: 1;
+    padding: 1rem;
+    border-radius: 5rem;
+    background: $green-dark;
+    color: $white;
+    text-align: center;
+    font-weight: 700;
+    transition: .3s;
+    line-height: 1rem;
+
+    &:hover {
+        background: $red;
+    }
+}
